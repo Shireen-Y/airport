@@ -12,14 +12,11 @@ def test_planes():
     assert Planes('1234').plane_number == '1234'
     assert Planes('5678').plane_number == '5678'
 
-def flight_trip_init():
-    new_trip = Flight_trip()
-    raise AssertionError("Check that no errors occurred or check if data type is of specific class")
 def test_flight_trip_init():
-    with pytest.raises(AssertionError, )
+    new_trip = Flight_trip()
     #ASSERTION
     # check that no errors occurred or check if data type is of specific class
-
+    assert isinstance(new_trip, Flight_trip) == True
 
 def test_flight_trip_add_destination():
     new_trip = Flight_trip()
