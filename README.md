@@ -12,7 +12,7 @@
 - It can be created with name and passport number
 - I can create 'Joana Thomson' with the Passport number 'B343123'
 - I can create 'Birt Kuman' with the Passport number 'B13927'
-- If I try to create a user with out a name or a passport number I get an error
+- If I try to create a user without a name or a passport number I get an error
 
 ## Plane
 - As a User I can create a Plane with a plane number
