@@ -17,7 +17,6 @@ def test_missing_info():
     with pytest.raises(TypeError):
         Passengers('B343123')
 
-
 def test_planes():
     new_plane = Planes('8901')
     # assert Planes('1234').plane_number == '1234'
