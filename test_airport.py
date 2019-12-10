@@ -1,21 +1,34 @@
+import pytest
 from passengers_class import *
 from planes_class import *
 from flight_trip_class import *
 
 def test_passenger():
-    assert Passengers('Joana Thompson', 'B343123').name == 'Joana Thompson'
-    assert Passengers('Birt Kuman', 'B13927').passport_number == 'B13927'
+    passenger1 = Passengers('Joana Thompson', 'B343123')
+    passenger2 = Passengers('Birt Kuman', 'B13927')
+    assert passenger1.name == 'Joana Thompson'
+    assert passenger2.passport_number == 'B13927'
+
+def test_missing_info():
+    with pytest.raises(TypeError):
+        Passengers()
+    with pytest.raises(TypeError):
+        Passengers('Joana Thompson')
+    with pytest.raises(TypeError):
+        Passengers('B343123')
 
 
 def test_planes():
-    assert Planes('1234').plane_number == '1234'
-    assert Planes('5678').plane_number == '5678'
+    new_plane = Planes('8901')
+    # assert Planes('1234').plane_number == '1234'
+    # assert Planes('5678').plane_number == '5678'
+    assert isinstance(new_plane, Planes)
 
 def test_flight_trip_init():
     new_trip = Flight_trip()
     #ASSERTION
     # check that no errors occurred or check if data type is of specific class
-    assert isinstance(new_trip, Flight_trip) == True
+    assert isinstance(new_trip, Flight_trip)
 
 def test_flight_trip_add_destination():
     new_trip = Flight_trip()
