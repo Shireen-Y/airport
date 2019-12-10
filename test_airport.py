@@ -1,4 +1,3 @@
-import pytest
 from passengers_class import *
 from planes_class import *
 from flight_trip_class import *
