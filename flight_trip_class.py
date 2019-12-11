@@ -1,11 +1,11 @@
 
 
 class Flight_trip():
-    def __init__(self): # 'self' = instance of an object
+    def __init__(self, destination, origin, plane): # 'self' = instance of an object
         self.passengers = []
-        self.destination = ''
-        self.origin = ''
-        self.plane = ''
+        self.destination = destination
+        self.origin = origin
+        self.plane = plane
 
     def add_plane(self, plane_number):
         self.plane = plane_number
