@@ -1,23 +1,19 @@
 import pyodbc
-from passengers_class import *
-from planes_class import *
-from flight_trip_class import *
 from air_passengers import *
 from air_flights import *
 
-passenger1 = Passengers('Joana Thompson', 'B343123')
-passenger2 = Passengers('Birt Kuman', 'B13927')
-passenger_list = []
-passenger_list.extend([passenger1, passenger2])
-
-flight1 = Flight_trip('LA', 'London', 'BA707')
-flight2 = Flight_trip('Amsterdam', 'London', 'EJ246')
-flight_list = []
-flight_list.extend([flight1, flight2])
+# passenger1 = Passengers('Joana Thompson', 'B343123')
+# passenger2 = Passengers('Birt Kuman', 'B13927')
+# passenger_list = []
+# passenger_list.extend([passenger1, passenger2])
+#
+# flight1 = Flight_trip('LA', 'London', 'BA707')
+# flight2 = Flight_trip('Amsterdam', 'London', 'EJ246')
+# flight_list = []
+# flight_list.extend([flight1, flight2])
 
 passenger_table = Air_passengers()
 flights_table = Air_flights()
-
 
 import time
 
@@ -30,39 +26,36 @@ while True:
 
     if user_input == '1':
         print('You have chosen option 1 - Create a Passenger')
-        name = input('What is your full name? ')
+        first_name = input('What is your first name? ')
+        last_name = input('What is your last name? ')
         pass_num = input('Please enter your passport number: ')
         print('Thank you, please wait a moment..')
-        new_passenger = Passengers(name.title(), pass_num.capitalize())
-        passenger_list.extend([new_passenger])
+        passenger_table.create_passenger(first_name, last_name, pass_num)
         time.sleep(0.7)
-        print(new_passenger.name + ' has been added successfully, thank you.')
+        print('New passenger added, thank you')
+        # new_passenger = Passengers(name.title(), pass_num.capitalize())
+        # passenger_list.extend([new_passenger])
         time.sleep(0.7)
 
     elif user_input == '2':
         print('You have chosen option 2- List all passengers')
-        for passenger in passenger_list:
-            print('Name: ' + passenger.name.title() + ', Passport number: ' + passenger.passport_number.capitalize())
-            time.sleep(0.7)
+        passenger_table.all_passengers()
+        time.sleep(0.7)
 
     elif user_input == '3':
         print('You have chosen option 3- List all flights')
-        for flight in flight_list:
-            print('Plane: ' + flight.plane + ', Flight origin: ' + flight.origin.title() + ', Flight destination: ' + flight.destination.capitalize())
-            time.sleep(0.7)
+        flights_table.all_flights()
+        time.sleep(0.7)
 
     elif user_input == '4':
         print('You have chosen option 4- Add passenger to the flight')
-        chosen_passenger = input('What is the passport number of the passenger? ')
-        chosen_flight = input('Where is the passenger flying to? ')
-        for passenger in passenger_list:
-            if chosen_passenger == passenger.passport_number.capitalize():
-                for flight in flight_list:
-                    if chosen_flight == flight.destination.title():
-                        flight.add_passenger(passenger)
-                        print(passenger.name.title() + ' has been added to the flight terminating at: ' + flight.destination.title())
-                        time.sleep(0.7)
-
+        ask_flight = input('Where is the passenger flying to? (Insert Flight ID of the flight) ')
+        pass_num = input('What is the passport number of the passenger? ')
+        print('Thank you, please wait a moment..')
+        passenger_table.add_passenger_to_flight(ask_flight, pass_num)
+        time.sleep(0.7)
+        print('Passenger has successfully been added to the flight')
+        time.sleep(0.7)
 
     elif user_input == 'exit':
         break

@@ -15,9 +15,6 @@ class MSDBConnect():
         return self.cursor.execute(sql_query)
 
 
-
-
-
 # These are our variables to connect
 server = 'localhost,1433'
 database = 'Airport_DB'
