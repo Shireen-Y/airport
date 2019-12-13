@@ -1,6 +1,9 @@
+import pyodbc
 from passengers_class import *
 from planes_class import *
 from flight_trip_class import *
+from air_passengers import *
+from air_flights import *
 
 passenger1 = Passengers('Joana Thompson', 'B343123')
 passenger2 = Passengers('Birt Kuman', 'B13927')
@@ -11,6 +14,10 @@ flight1 = Flight_trip('LA', 'London', 'BA707')
 flight2 = Flight_trip('Amsterdam', 'London', 'EJ246')
 flight_list = []
 flight_list.extend([flight1, flight2])
+
+passenger_table = Air_passengers()
+flights_table = Air_flights()
+
 
 import time
 
@@ -33,19 +40,19 @@ while True:
         time.sleep(0.7)
 
     elif user_input == '2':
-        print('You have chosen option 3- List all passengers')
+        print('You have chosen option 2- List all passengers')
         for passenger in passenger_list:
             print('Name: ' + passenger.name.title() + ', Passport number: ' + passenger.passport_number.capitalize())
             time.sleep(0.7)
 
     elif user_input == '3':
-        print('You have chosen option 4- List all flights')
+        print('You have chosen option 3- List all flights')
         for flight in flight_list:
             print('Plane: ' + flight.plane + ', Flight origin: ' + flight.origin.title() + ', Flight destination: ' + flight.destination.capitalize())
             time.sleep(0.7)
 
     elif user_input == '4':
-        print('You have chosen option 2 - Add passenger to the flight')
+        print('You have chosen option 4- Add passenger to the flight')
         chosen_passenger = input('What is the passport number of the passenger? ')
         chosen_flight = input('Where is the passenger flying to? ')
         for passenger in passenger_list:
