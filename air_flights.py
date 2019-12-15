@@ -7,11 +7,20 @@ class Air_flights(MSDBConnect):
         return self.cursor.execute(sql_query)
 
     def all_flights(self):
+        print('Listing all the flights we have available, please wait a moment..')
         query = 'SELECT * FROM Flights'
         result = self.__sql_query(query)
         while True:
             record = result.fetchone()
             if record is None:
                 break
-            print(f"Flight ID: {record.flight_ID}, Passenger ID: {record.passenger_ID}, Plane ID: {record.plane_ID}, Origin of flight: {record.origin}, Destination of flight: {record.destination}")
+            print(record)
 
+    def create_flight(self):
+        ask_plane = input('What is the plane ID? ')
+        ask_origin = input('Where is the flight departing from? ')
+        ask_destination = input('Where is the flight terminating? ')
+        query = f"INSERT INTO Flights (plane_ID, origin, destination) VALUES ('{ask_plane}', '{ask_origin}', '{ask_destination}')"
+        result = self.__sql_query(query)
+        self.docker_Airport_DB.commit()
+        return result
