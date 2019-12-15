@@ -11,9 +11,9 @@ class Air_passengers(MSDBConnect):
         last_name = input('What is the passengers last name? ')
         passport_number = input('What is the passengers passport number? ')
         query = f"INSERT INTO Passengers (first_name, last_name, passport_number) VALUES ('{first_name}','{last_name}','{passport_number}')"
+        print('Please wait a moment...')
         result = self.__sql_query(query)
         self.docker_Airport_DB.commit()
-        print('Please wait a moment...')
         return result
 
     def all_passengers(self):
@@ -25,13 +25,14 @@ class Air_passengers(MSDBConnect):
             record = result.fetchone()
             if record is None:
                 break
+            print(f"Passenger ID: {record.passenger_ID}, Full name: {record.first_name} {record.last_name}, Passport Number: {record.passport_number}, Flight ID: {record.flight_ID}")
         return 'All results completed'
 
     def add_passenger_to_flight(self):
         ask_flight = input('What is the flight ID you would like to add the passenger to? ')
         passport_number = input('What is the passengers passport number? ')
         query = f"UPDATE Passengers SET flight_ID = '{ask_flight}' WHERE passport_number = '{passport_number}'"
+        print('Thank you please wait a moment..')
         result = self.__sql_query(query)
         self.docker_Airport_DB.commit()
-        print('Thank you please wait a moment..')
         return result

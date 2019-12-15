@@ -14,7 +14,7 @@ class Air_flights(MSDBConnect):
             record = result.fetchone()
             if record is None:
                 break
-            print(record)
+            print(f"Flight ID: {record.flight_ID}, Plane ID: {record.plane_ID}, Origin: {record.origin}, Destination: {record.destination}")
 
     def create_flight(self):
         ask_plane = input('What is the plane ID? ')

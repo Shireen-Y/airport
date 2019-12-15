@@ -9,6 +9,8 @@ passenger_table = Air_passengers()
 flights_table = Air_flights()
 planes_table = Air_planes()
 
+# Not working: 1, 4, 7
+
 while True:
     print('1- Create a Passenger')
     print('2- Search a passenger')
@@ -35,6 +37,7 @@ while True:
     elif user_input == '3':
         print('You have chosen option 3 - List all flights')
         flights_table.all_flights()
+        time.sleep(0.7)
         print('All flights listed')
         time.sleep(0.7)
 

@@ -21,5 +21,5 @@ class Air_planes(MSDBConnect):
             record = result.fetchone()
             if record is None:
                 break
-            print(record)
+            print(f"Plane ID: {record.plane_ID}, Plane Number: {record.plane_number}")
         return 'Complete'
