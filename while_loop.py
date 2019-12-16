@@ -15,7 +15,7 @@ while True:
     print('1- Create a Passenger')
     print('2- Search a passenger')
     print('3- List all flights')
-    print('4- Create a flight')
+    print('4- Add a flight')
     print('5- Add passenger to the flight')
     print('6- List all planes')
     print('7- Add a plane')
@@ -42,7 +42,7 @@ while True:
         time.sleep(0.7)
 
     elif user_input == '4':
-        print('You have selected option 4 - Create a flight')
+        print('You have selected option 4 - Add a flight')
         flights_table.create_flight()
         print('You have successfully created a flight!')
         time.sleep(0.7)
