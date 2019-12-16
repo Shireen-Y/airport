@@ -13,7 +13,7 @@ class Air_passengers(MSDBConnect):
         query = f"INSERT INTO Passengers (first_name, last_name, passport_number) VALUES ('{first_name}','{last_name}','{passport_number}')"
         print('Please wait a moment...')
         result = self.__sql_query(query)
-        self.docker_Airport_DB.commit()
+        self.cursor.commit()
         return result
 
     def all_passengers(self):

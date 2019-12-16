@@ -4,7 +4,8 @@
 - Use TDD to write some tests, then code the airport interface. 
 
 # Specification for Airport 
-- This file has the specification for the airport. 
+- This file has the specification for the airport.
+- 'return' will exit the function 
 
 ## Passengers
 
